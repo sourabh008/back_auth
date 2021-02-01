@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <link rel = "stylesheet" href="style.css">
+  <title> My Form </title>
+</head>
+<body>
+  <form action="/">
+    <h2>Login</h2>
+    <label for="email">Email</label>
+    <input type="text" name="email"  />
+    <label for="password">Password</label>
+    <input type="password" name="password"  />
+    <div class="password error"></div>
+    <p>Have an account <span></span> <a style="color:blue" href="http://localhost:3000/signup">click here</a></p>
+    <button>Login</button>
+  <!-- </form>
+    <form action="/">
+      <fieldset>
+        <h3>Login</h3>
+        <label>Email</label>
+        <input type="email" id = "name" name="email" >
+        <br><br>
+        <label>password</label>
+        <input type="password" id = "name" name="password" >
+        <br><br>
+        <div ><p class="error" style="color:red"></p></div>
+        <p>don't have an account<span> </span><a href="http://localhost:3000/signup">click here</a></p>
+        <button type ="submit">Login</button>
+      </fieldset>
+    </form> -->
+    <script>
+      const form =document.querySelector('form');
+      const error =document.querySelector('.error');
+      form.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    // get values
+    const email = form.email.value;
+    const password = form.password.value;
+    try {
+      const res = await fetch('/', { 
+        method: 'POST', 
+        body: JSON.stringify({ email, password }),
+        headers: {'Content-Type': 'application/json'}
+      });
+
+      const data = await res.json();
+      console.log(data)
+      if (data.user) {
+        location.assign('/game');
+      }else{
+        error.textContent="Wrong email or password"
+      }
+    }
+    catch (err) {
+      console.log(err)
+    }    
+  });
+    </script>
+</body>

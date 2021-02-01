@@ -1,0 +1,169 @@
+
+.top {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .initial {
+        width: 3.5%;
+        margin-top: 1%;
+        /* border: 1px solid black */
+    }
+    
+    .red1 {
+        /* border: 1px solid black; */
+        background-image: url('red.png');
+        background-repeat: no-repeat;
+        background-size: 30px 30px;
+        width: 50px;
+        height: 30px;
+        display: block;
+    }
+    
+    .blue1 {
+        /* border: 1px solid black; */
+        background-image: url('blue.png');
+        background-repeat: no-repeat;
+        background-size: 26px 26px;
+        width: 50px;
+        height: 40px;
+        display: block;
+    }
+    
+    .main {
+        width: 63%;
+        height: 85.5%;
+        margin: 2%;
+        margin-left: 0%;
+        /* background-color: aqua; */
+    }
+    
+    .test {
+        width: 100px;
+        height: 60px;
+        border: 1px solid black;
+    }
+    
+    .test4 {
+        background-image: url('red.png');
+        background-repeat: no-repeat;
+        background-size: 82px 70px;
+        /* margin: 10px */
+    }
+    
+    .test5 {
+        background-image: url('blue.png');
+        background-repeat: no-repeat;
+        background-size: 75px 66px;
+        /* height: 60px; */
+        /* background-size: contain, cover; */
+        /* background-size: auto; */
+        /* margin: 10px */
+    }
+    
+    .test1 {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .top {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .player_section {
+        margin-top: 2%;
+        background-color: rgb(245, 241, 241);
+        /* margin: 10%; */
+        width: 350px;
+        height: 500px;
+    }
+    
+    .player_section1 {
+        margin-left: 20%;
+    }
+    
+    #button2 {
+        display: none;
+    }
+    
+    #button {
+        width: 100px;
+        height: 50px;
+        background-color: red;
+        color: white;
+        border: none;
+        display: none;
+        border-radius: 20px;
+        float: left;
+        margin-bottom: 30px;
+    }
+    
+    #button1 {
+        width: 100px;
+        height: 50px;
+        background-color: black;
+        color: white;
+        border: none;
+        display: none;
+        border-radius: 20px;
+        /* float: right; */
+        margin-left: 1px;
+    }
+    
+    #button2 {
+        width: 140px;
+        height: 50px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 20px;
+    }
+    
+    #h2 {
+        font-size: 40px;
+        color: orange;
+    }
+    
+    .h4 {
+        color: green;
+        font-weight: bold;
+    }
+    
+    .snake {
+        color: red;
+        font-weight: bold;
+    }
+    
+    .second {
+        background-image: url("ladder.jpeg");
+        background-repeat: no-repeat;
+        background-size: 90px 100px;
+    }
+    
+    .first {
+        background-image: url("snake.jpeg");
+        background-repeat: no-repeat;
+        background-size: 90px 100px;
+    }
+    
+    .img {
+        /* margin: 100px; */
+        display: none;
+        max-width: 100px;
+        max-height: 100px;
+        clear: both;
+        margin-top: 30px;
+    }
+    
+    #button4 {
+        width: 140px;
+        height: 50px;
+        background-color: green;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        font-size: 20px;
+    }

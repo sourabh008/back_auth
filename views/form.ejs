@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <meta charset = "UTF-8">
+  <link rel = "stylesheet" href="style.css">
+  <title> My Form </title>
+</head>
+<body>
+  <form action="/SignUp">
+    <h2>SignUp</h2>
+    <label for="email">Email</label>
+    <input type="text" name="email"  />
+    <label for="password">Password</label>
+    <input type="password" name="password"  />
+    <div class="password error"></div>
+    <p>Have an account <span></span> <a style="color:blue" href="http://localhost:3000/">click here</a></p>
+    <button>SignUp</button>
+  </form>
+    <!-- <form action="/SignUp">
+      <fieldset>
+        <h3>User Registration</h3>
+        <label>Email</label>
+        <input type="email" id = "name" name="email" >
+        <br><br>
+        <label>password</label>
+        <input type="password" id = "name" name="password" >
+        <br><br>
+        <div ><p class="error" style="color:red"></p></div>
+        <p>Have an account <span></span> <a href="http://localhost:3000/">click here</a></p>
+        <button type ="submit">Submit</button>
+      </fieldset>
+    </form> -->
+    <script>
+      const form =document.querySelector('form');
+      const error =document.querySelector('.error');
+
+      form.addEventListener('submit', async(e) => {
+    e.preventDefault();
+    error.textContent="";
+    // get values
+    const email = form.email.value;
+    const password = form.password.value;
+    try {
+      const res = await fetch('/signup', { 
+        method: 'POST', 
+        body: JSON.stringify({ email, password }),
+        headers: {'Content-Type': 'application/json'}
+      });
+      const data=await res.json();
+if(data.code==11000){
+  error.textContent="email already exist"
+} else if(data.user){
+  location.assign('/game');
+
+}
+   }
+    catch (err) {
+      console.log(err);
+    }    
+  });
+    </script>
+       </body>
