@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Form</title>
+  </head>
+  <body>
+    <form action="/reset/:token">
+      <h2>Reset Password</h2>
+      <label for="password">Password</label>
+      <input type="password" name="password" required />
+      <div class="password error"></div>
+      <button>Submit</button>
+    </form>
+    <script>
+      const form = document.querySelector("form");
+      const error = document.querySelector(".error");
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        error.textContent = "";
+        // get values
+        const email = form.email.value;
+        const password = form.password.value;
+        try {
+          const res = await fetch("/reset/:token", {
+            method: "POST",
+            body: JSON.stringify({ email, password }),
+            headers: { "Content-Type": "application/json" },
+          });
+          const data = await res.json();
+          if (data.code == 11000) {
+            error.textContent = "email already exist";
+          } else if (data.user) {
+            location.assign("/");
+          }
+        } catch (err) {
+          console.log(err);
+        }
+      });
+    </script>
+  </body>
+</html>

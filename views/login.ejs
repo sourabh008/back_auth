@@ -9,27 +9,12 @@
   <form action="/">
     <h2>Login</h2>
     <label for="email">Email</label>
-    <input type="text" name="email"  />
+    <input type="text" name="email"required  />
     <label for="password">Password</label>
-    <input type="password" name="password"  />
+    <input type="password" name="password" required />
     <div class="password error"></div>
     <p>Have an account <span></span> <a style="color:blue" href="http://localhost:3000/signup">click here</a></p>
     <button>Login</button>
-  <!-- </form>
-    <form action="/">
-      <fieldset>
-        <h3>Login</h3>
-        <label>Email</label>
-        <input type="email" id = "name" name="email" >
-        <br><br>
-        <label>password</label>
-        <input type="password" id = "name" name="password" >
-        <br><br>
-        <div ><p class="error" style="color:red"></p></div>
-        <p>don't have an account<span> </span><a href="http://localhost:3000/signup">click here</a></p>
-        <button type ="submit">Login</button>
-      </fieldset>
-    </form> -->
     <script>
       const form =document.querySelector('form');
       const error =document.querySelector('.error');
@@ -44,7 +29,6 @@
         body: JSON.stringify({ email, password }),
         headers: {'Content-Type': 'application/json'}
       });
-
       const data = await res.json();
       console.log(data)
       if (data.user) {
